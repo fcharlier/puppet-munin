@@ -3,7 +3,10 @@
 # See LICENSE for the full license granted to you.
 # Adapted and improved by admin(at)immerda.ch
 
-class munin::client {
+class munin::client (
+    $munin_allow = ['127.0.0.1'],
+    $host = 'absent',
+    $port = '4949') {
 
     case $::operatingsystem {
         openbsd: { include munin::client::openbsd }
